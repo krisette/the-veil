@@ -2,14 +2,25 @@ import React, { useState } from 'react';
 import { View, Text, Image, TouchableOpacity, ScrollView } from 'react-native';
 import Modal from 'react-native-modal';
 import { images } from '../assets/images';
-import { getCardInterpretation } from '../utils/api';
 import { Body, Title } from '../ui/text';
 import { TextButton } from '../ui/buttons';
+import { Card } from '../types';
+import useTarot from '../hooks';
+import ReadingSkeleton from './ReadingSkeleton';
 
-const CardModal = ({ visible, cards, onClose }) => {
-  const [flippedIndices, setFlippedIndices] = useState([]);
+interface CardModalProps {
+  visible: boolean;
+  cards: Card[];
+  onClose: () => void;
+}
+
+const CardModal: React.FC<CardModalProps> = ({ visible, cards, onClose }) => {
+  const [flippedIndices, setFlippedIndices] = useState<number[]>([]);
   const [showResultModal, setShowResultModal] = useState(false);
-  const [apiResult, setApiResult] = useState('');
+  const [apiResult, setApiResult] = useState<string | null>('');
+
+  const { getCardInterpretation, isInterpreting } = useTarot();
+
 
   const handlePress = (index) => {
     setFlippedIndices((prevIndices) =>
@@ -19,19 +30,18 @@ const CardModal = ({ visible, cards, onClose }) => {
     );
   };
 
-  const handleShowResult = async () => {
-    const isThreeCardSpread = cards.length === 3;
-
-    if (isThreeCardSpread) {
-      try {
-        const result = await getCardInterpretation(cards);
-        setApiResult(result);
-        setShowResultModal(true);
-      } catch (error) {
-        console.error('Error fetching interpretation:', error);
-      }
+const handleShowResult = async () => {
+  if (cards.length === 3) {
+    setShowResultModal(true);
+    try {
+      const result = await getCardInterpretation(cards); 
+      setApiResult(result || '');
+    } catch (error) {
+      console.error('Error fetching interpretation:', error);
+      setApiResult('');
     }
-  };
+  }
+};
 
   return (
     <Modal
@@ -104,7 +114,13 @@ const CardModal = ({ visible, cards, onClose }) => {
           <ScrollView className="flex-1">
             <View className="p-20">
               <Text>API Result:</Text>
-              <Text>{apiResult}</Text>
+              {
+              isInterpreting ? (
+                <ReadingSkeleton />
+              ) : (
+                <Text>{apiResult}</Text>
+              )
+            }
             </View>
           </ScrollView>
           <TouchableOpacity

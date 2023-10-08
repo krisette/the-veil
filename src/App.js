@@ -27,6 +27,9 @@ import {
   Spectral_800ExtraBold,
   Spectral_800ExtraBold_Italic,
 } from '@expo-google-fonts/spectral';
+import { QueryClient, QueryClientProvider } from 'react-query';
+
+const queryClient = new QueryClient();
 
 export default function App() {
   let [fontsLoaded] = useFonts({
@@ -58,9 +61,9 @@ export default function App() {
     return null;
 
   return (
-    <>
+     <QueryClientProvider client={queryClient}>
       <StatusBar style="auto" />
       <HomePage />
-    </>
+    </QueryClientProvider>
   );
 }

@@ -2,7 +2,7 @@
 import React, { useCallback, useState } from 'react';
 import { View, Text, Button } from 'react-native';
 import FadeInSvg from '../components/Logo';
-import useTarot from '../hooks/useTarot';
+import useTarot from '../hooks';
 import CardModal from '../components/CardModal';
 import Body from '../ui/text/Body';
 import Title from '../ui/text/Title';

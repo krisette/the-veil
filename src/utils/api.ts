@@ -9,8 +9,6 @@ export const getCardInterpretation = async (cards) => {
     )
     .join('\n')}`;
 
-    console.log(prompt)
-
   try {
     const response = await axios.post(
       'https://api.openai.com/v1/chat/completions',
@@ -34,3 +32,7 @@ export const getCardInterpretation = async (cards) => {
   }
 };
 
+export const getDrawnCards = async (count) => {
+  try {
+    const response = await axios.get()
+  }
