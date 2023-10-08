@@ -1,10 +1,12 @@
 {
   "*.ts": [
     "prettier --write",
-    "eslint --fix"
+    "eslint --fix",
+    "tsc --noEmit"
   ],
    "*.tsx": [
     "prettier --write",
-    "eslint --fix"
+    "eslint --fix",
+    "tsc --noEmit"
   ]
 }
