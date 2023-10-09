@@ -31,7 +31,7 @@ const HomePage = () => {
 	);
 
 	return (
-		<View className="pt-20 bg-black h-full">
+		<View className="pt-20 bg-background h-full">
 			<FadeInSvg onAnimationComplete={() => setIsAnimationComplete(true)} />
 
 			{isAnimationComplete && (

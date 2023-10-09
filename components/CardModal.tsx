@@ -66,18 +66,19 @@ const CardModal: React.FC<CardModalProps> = ({ visible, cards, onClose }) => {
 								key={index}
 								activeOpacity={0.9}
 								onPress={() => {
-									console.log(`Card ${index} pressed`);
 									handlePress(index);
 								}}
 								className="w-[300px] h-[527px] mx-4 justify-center items-center"
 							>
 								{isFlipped ? (
-									<View className="w-full h-full justify-center items-center p-4 bg-white rounded-lg">
-										<Title className="text-[24px]">{card.name}</Title>
+									<View className="w-full h-full justify-center items-center p-4 bg-secondaryBackground rounded-lg">
+										<Title className="text-[24px] text-primary">
+											{card.name}
+										</Title>
 										{card.orientation !== 'up' && (
-											<Body className="text-[16px]">Reversed</Body>
+											<Body className="text-[16px] text-primary">Reversed</Body>
 										)}
-										<Text>
+										<Text className="text-secondary mt-4">
 											{card.orientation === 'up'
 												? card.meaning_up
 												: card.meaning_rev}

@@ -1,12 +1,7 @@
 {
-  "*.ts": [
+  "*.{ts,tsx,js}": [
     "prettier --write",
-    "eslint --fix",
-    "tsc --noEmit"
+    "eslint --fix"
   ],
-   "*.tsx": [
-    "prettier --write",
-    "eslint --fix",
-    "tsc --noEmit"
-  ]
+  "!node_modules/**/*.{ts,tsx,js}": []
 }
