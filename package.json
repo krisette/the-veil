@@ -21,7 +21,7 @@
     "@expo-google-fonts/inconsolata": "^0.2.3",
     "@expo-google-fonts/libre-baskerville": "^0.2.3",
     "@expo-google-fonts/spectral": "^0.2.3",
-    "@types/react": "~18.2.14",
+    "@types/react": "~18.2.27",
     "axios": "^1.5.1",
     "expo": "~49.0.13",
     "expo-status-bar": "~1.7.1",
