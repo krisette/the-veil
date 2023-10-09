@@ -19,6 +19,7 @@
   "dependencies": {
     "@commitlint/config-conventional": "^17.7.0",
     "@expo-google-fonts/inconsolata": "^0.2.3",
+    "@expo-google-fonts/libre-baskerville": "^0.2.3",
     "@expo-google-fonts/spectral": "^0.2.3",
     "@types/react": "~18.2.14",
     "axios": "^1.5.1",

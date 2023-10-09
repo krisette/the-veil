@@ -28,6 +28,11 @@ import {
 	Spectral_800ExtraBold,
 	Spectral_800ExtraBold_Italic,
 } from '@expo-google-fonts/spectral';
+import {
+	LibreBaskerville_400Regular,
+	LibreBaskerville_400Regular_Italic,
+	LibreBaskerville_700Bold,
+} from '@expo-google-fonts/libre-baskerville';
 import { QueryClient, QueryClientProvider } from 'react-query';
 
 const queryClient = new QueryClient();
@@ -56,6 +61,9 @@ export default function App() {
 		Spectral_700Bold_Italic,
 		Spectral_800ExtraBold,
 		Spectral_800ExtraBold_Italic,
+		LibreBaskerville_400Regular,
+		LibreBaskerville_400Regular_Italic,
+		LibreBaskerville_700Bold,
 	});
 
 	if (!fontsLoaded) return null;

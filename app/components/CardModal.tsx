@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { View, Text, Image, TouchableOpacity, ScrollView } from 'react-native';
 import Modal from 'react-native-modal';
-import { images } from '../assets/images';
-import { Body, Title } from '../ui/text';
-import { TextButton } from '../ui/buttons';
+import { images } from '../../assets/images';
+import { Body, Title } from '../../ui/text';
+import { TextButton } from '../../ui/buttons';
 import { Card } from '../types';
 import useTarot from '../hooks';
 import ReadingSkeleton from './ReadingSkeleton';

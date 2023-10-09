@@ -1,14 +1,13 @@
 // In your HomePage component
 import React, { useCallback, useState } from 'react';
-import { View } from 'react-native';
-import FadeInSvg from '../../components/Logo';
-import useTarot from '../../hooks';
-import CardModal from '../../components/CardModal';
+import { ScrollView, View } from 'react-native';
+import useTarot from '../hooks';
+import CardModal from '../components/CardModal';
 import Title from '../../ui/text/Title';
 import { TextButton } from '../../ui/buttons';
+import { Body } from '../../ui/text';
 
 const HomePage = () => {
-	const [isAnimationComplete, setIsAnimationComplete] = useState(false);
 	const [isModalVisible, setModalVisible] = useState(false);
 	const [, setIsLoading] = useState(false);
 	const { selectedCards, drawCards } = useTarot();
@@ -31,28 +30,28 @@ const HomePage = () => {
 	);
 
 	return (
-		<View className="pt-20 bg-background h-full">
-			<FadeInSvg onAnimationComplete={() => setIsAnimationComplete(true)} />
-
-			{isAnimationComplete && (
-				<>
-					<Title className="text-white text-center text-2xl lowercase">
-            Choose your spread.
-					</Title>
-					<TextButton
-						onPress={() => handleDrawCards(1)}
-						iconName="angle-double-right"
-					>
-            One card
-					</TextButton>
-					<TextButton
-						onPress={() => handleDrawCards(3)}
-						iconName="angle-double-right"
-					>
-            Three card
-					</TextButton>
-				</>
-			)}
+		<View className="pt-16 bg-background h-full">
+			<View className="flex justify-center items-center">
+				<Title className="text-primary text-center text-[42px] tracking-[1px] lowercase">
+          The Veil
+				</Title>
+				<View className="bg-zinc-700 h-[1px] mt-3 w-3/4" />
+			</View>
+			<ScrollView className="px-8">
+				<Body className="text-center">Good morning. Choose your spread.</Body>
+				<TextButton
+					onPress={() => handleDrawCards(1)}
+					iconName="angle-double-right"
+				>
+          One card
+				</TextButton>
+				<TextButton
+					onPress={() => handleDrawCards(3)}
+					iconName="angle-double-right"
+				>
+          Three card
+				</TextButton>
+			</ScrollView>
 			<CardModal
 				visible={isModalVisible}
 				cards={selectedCards}

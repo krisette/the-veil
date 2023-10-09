@@ -8,7 +8,10 @@ interface Props extends TextProps {
 
 const Body: React.FC<Props> = ({ children, className, ...rest }) => {
 	return (
-		<Text className={`font-inconsolata text-white ${className}`} {...rest}>
+		<Text
+			className={`font-libreBaskerville text-default text-base ${className}`}
+			{...rest}
+		>
 			{children}
 		</Text>
 	);

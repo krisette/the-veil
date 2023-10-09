@@ -1922,6 +1922,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@expo-google-fonts/libre-baskerville@npm:^0.2.3":
+  version: 0.2.3
+  resolution: "@expo-google-fonts/libre-baskerville@npm:0.2.3"
+  checksum: d80543e30035f61f3c779d50836cd2812cf55788064d54c06e8644452b4f98626af13e952bd8c1c73fece730b987982ead73c6cf0a750e14e058a1b900a1abe0
+  languageName: node
+  linkType: hard
+
 "@expo-google-fonts/spectral@npm:^0.2.3":
   version: 0.2.3
   resolution: "@expo-google-fonts/spectral@npm:0.2.3"
@@ -11388,6 +11395,7 @@ __metadata:
     "@babel/core": ^7.20.0
     "@commitlint/config-conventional": ^17.7.0
     "@expo-google-fonts/inconsolata": ^0.2.3
+    "@expo-google-fonts/libre-baskerville": ^0.2.3
     "@expo-google-fonts/spectral": ^0.2.3
     "@testing-library/react-native": ^12.3.0
     "@types/react": ~18.2.14

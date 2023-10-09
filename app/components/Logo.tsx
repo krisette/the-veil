@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { Animated, Image } from 'react-native';
-import Logo from '../assets/logo.png';
+import Logo from '../../assets/logo.png';
 
 interface Props {
   onAnimationComplete?: () => void;
