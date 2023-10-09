@@ -1,11 +1,11 @@
 // In your HomePage component
 import React, { useCallback, useState } from 'react';
 import { View } from 'react-native';
-import FadeInSvg from '../components/Logo';
-import useTarot from '../hooks';
-import CardModal from '../components/CardModal';
-import Title from '../ui/text/Title';
-import { TextButton } from '../ui/buttons';
+import FadeInSvg from '../../components/Logo';
+import useTarot from '../../hooks';
+import CardModal from '../../components/CardModal';
+import Title from '../../ui/text/Title';
+import { TextButton } from '../../ui/buttons';
 
 const HomePage = () => {
 	const [isAnimationComplete, setIsAnimationComplete] = useState(false);
