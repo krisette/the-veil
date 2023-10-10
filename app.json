@@ -35,7 +35,7 @@
       }
     },
     "owner": "krisette",
-    "scheme": "theveil",
+    "scheme": "com.googleusercontent.apps.41402172950-mlcqkjaqd5mia1ag1lon0jj21dm293ea",
     "plugins": ["@react-native-google-signin/google-signin",
         [
         "expo-build-properties",
