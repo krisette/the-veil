@@ -16,7 +16,7 @@ jobs:
     steps:
       - name: Check branch name
         run: |
-          BRANCH_NAME=$(echo ${GITHUB_REF#refs/heads/} | grep -E "^(feature|bug|chore)/[a-zA-Z0-9_-]+$")
+          BRANCH_NAME=$(echo ${GITHUB_REF#refs/heads/} | grep -E "^(feature|bug|chore|dependabot)/[a-zA-Z0-9_-]+$")
           if [[ ! $BRANCH_NAME ]]; then
             echo "Invalid branch name! Branch names in this repo must adhere to the pattern: '(feature|bug|chore)/<name>'."
             exit 1
