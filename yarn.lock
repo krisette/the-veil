@@ -3475,6 +3475,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@react-native-google-signin/google-signin@npm:^10.0.1":
+  version: 10.0.1
+  resolution: "@react-native-google-signin/google-signin@npm:10.0.1"
+  peerDependencies:
+    expo: ">=47.0.0"
+    react: "*"
+    react-native: "*"
+  peerDependenciesMeta:
+    expo:
+      optional: true
+  checksum: d147a7ca4fbcc877efd21510670499a0be9f91b43d2b02bfee00f43d27ffe0920bbebc24b95f07443e375f4fd42f9403f91290541e120b1e9c26171b0796210a
+  languageName: node
+  linkType: hard
+
 "@react-native/assets-registry@npm:^0.72.0":
   version: 0.72.0
   resolution: "@react-native/assets-registry@npm:0.72.0"
@@ -12620,6 +12634,7 @@ __metadata:
     "@react-native-async-storage/async-storage": 1.18.2
     "@react-native-firebase/app": ^18.5.0
     "@react-native-firebase/auth": ^18.5.0
+    "@react-native-google-signin/google-signin": ^10.0.1
     "@testing-library/react-native": ^12.3.0
     "@types/react": ~18.2.14
     "@types/react-native": ^0.72.3

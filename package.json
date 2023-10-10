@@ -24,6 +24,7 @@
     "@react-native-async-storage/async-storage": "1.18.2",
     "@react-native-firebase/app": "^18.5.0",
     "@react-native-firebase/auth": "^18.5.0",
+    "@react-native-google-signin/google-signin": "^10.0.1",
     "@types/react": "~18.2.14",
     "axios": "^1.5.1",
     "expo": "~49.0.13",
