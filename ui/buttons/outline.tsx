@@ -8,11 +8,11 @@ interface Props {
   children?: React.ReactNode;
 }
 
-const TextButton: React.FC<Props> = ({ onPress, iconName, children }) => {
+const OutlineButton: React.FC<Props> = ({ onPress, iconName, children }) => {
   return (
     <TouchableOpacity
       onPress={onPress}
-      className="flex-row items-center bg-transparent p-2 m-1"
+      className="flex-row items-center bg-transparent border border-white p-2 m-1"
     >
       <Text
         className={`text-white underline font-inconsolata uppercase ${
@@ -26,4 +26,4 @@ const TextButton: React.FC<Props> = ({ onPress, iconName, children }) => {
   );
 };
 
-export default TextButton;
+export default OutlineButton;

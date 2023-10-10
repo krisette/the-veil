@@ -2,6 +2,7 @@
   "expo": {
     "name": "the-veil",
     "slug": "the-veil",
+    "originalFullName": "@krisette/the-veil",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -33,6 +34,17 @@
         "projectId": "63be5a81-2f26-41e1-a6e1-b4d9e6444812"
       }
     },
-    "owner": "krisette"
+    "owner": "krisette",
+    "scheme": "com.googleusercontent.apps.41402172950-mlcqkjaqd5mia1ag1lon0jj21dm293ea",
+    "plugins": ["@react-native-google-signin/google-signin",
+        [
+        "expo-build-properties",
+          {
+            "ios": {
+              "useFrameworks": "static"
+            }
+          }
+      ]
+    ]
   }
 }
