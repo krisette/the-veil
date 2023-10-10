@@ -6,12 +6,32 @@ import CardModal from '../components/CardModal';
 import Title from '../../ui/text/Title';
 import { TextButton } from '../../ui/buttons';
 import { Body } from '../../ui/text';
+import { User } from 'firebase/auth';
 
-const HomePage = () => {
+interface Props {
+  user: User;
+}
+
+const HomePage: React.FC<Props> = ({ user }) => {
 	const [isModalVisible, setModalVisible] = useState(false);
 	const [, setIsLoading] = useState(false);
 	const { selectedCards, drawCards } = useTarot();
 	const [resetFlag, setResetFlag] = useState(false);
+
+	const firstName = user.displayName?.split(' ')[0];
+
+	const greeting = () => {
+		const date = new Date();
+		const hour = date.getHours();
+
+		if (hour < 12) {
+			return 'Good morning';
+		} else if (hour < 18) {
+			return 'Good afternoon';
+		} else {
+			return 'Good evening';
+		}
+	};
 
 	const toggleModal = () => {
 		setModalVisible(!isModalVisible);
@@ -45,7 +65,9 @@ const HomePage = () => {
 				<View className="bg-zinc-700 h-[1px] mt-3 w-3/4" />
 			</View>
 			<ScrollView className="px-8">
-				<Body className="text-center">Good morning. Choose your spread.</Body>
+				<Body className="text-center">
+					{greeting()}, {firstName}. Choose your spread.
+				</Body>
 				<TextButton
 					onPress={() => handleDrawCards(1)}
 					iconName="angle-double-right"

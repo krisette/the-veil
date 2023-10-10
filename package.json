@@ -9,7 +9,9 @@
     "web": "expo start --web",
     "lint": "prettier --check .",
     "format": "prettier --write .",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "build": "eas build --profile development-simulator --platform ios",
+    "dev": "expo start --dev-client"
   },
   "husky": {
     "hooks": {

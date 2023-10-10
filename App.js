@@ -37,10 +37,12 @@ import {
 	LibreBaskerville_700Bold,
 } from '@expo-google-fonts/libre-baskerville';
 import { QueryClient, QueryClientProvider } from 'react-query';
+import { useGoogleSignIn } from './app/hooks/auth';
 
 const queryClient = new QueryClient();
 
 export default function App() {
+	const { user, signIn, signOut } = useGoogleSignIn();
 	let [fontsLoaded] = useFonts({
 		Inconsolata_200ExtraLight,
 		Inconsolata_300Light,
@@ -71,13 +73,19 @@ export default function App() {
 
 	if (!fontsLoaded) return null;
 
+	const renderContent = () => {
+		if (user) {
+			return <HomePage user={user} />;
+		}
+		return <SignIn signIn={signIn} />;
+	};
+
 	return (
 		<SafeAreaProvider>
 			<SafeAreaView>
 				<QueryClientProvider client={queryClient}>
 					<StatusBar style="auto" />
-					{/* <HomePage /> */}
-					<SignIn />
+					{renderContent()}
 				</QueryClientProvider>
 			</SafeAreaView>
 		</SafeAreaProvider>

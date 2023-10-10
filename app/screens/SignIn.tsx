@@ -1,14 +1,14 @@
 import React from 'react';
-import { Button, Text, View } from 'react-native';
-import { useGoogleSignIn } from '../hooks/auth';
+import { Button, View } from 'react-native';
 
-const SignIn: React.FC = () => {
-	const { user, signIn } = useGoogleSignIn();
+interface Props {
+  signIn: () => void;
+}
 
+const SignIn: React.FC<Props> = ({ signIn }) => {
 	return (
 		<View>
 			<Button title="Sign in with Google" onPress={signIn} />
-			{user && <Text>Welcome, {user.displayName}!</Text>}
 		</View>
 	);
 };
