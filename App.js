@@ -1,6 +1,9 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import HomePage from './app/screens/HomePage';
+import SignIn from './app/screens/SignIn';
+import { SafeAreaView, SafeAreaProvider } from 'react-native-safe-area-context';
 import {
 	useFonts,
 	Inconsolata_200ExtraLight,
@@ -69,9 +72,14 @@ export default function App() {
 	if (!fontsLoaded) return null;
 
 	return (
-		<QueryClientProvider client={queryClient}>
-			<StatusBar style="auto" />
-			<HomePage />
-		</QueryClientProvider>
+		<SafeAreaProvider>
+			<SafeAreaView>
+				<QueryClientProvider client={queryClient}>
+					<StatusBar style="auto" />
+					{/* <HomePage /> */}
+					<SignIn />
+				</QueryClientProvider>
+			</SafeAreaView>
+		</SafeAreaProvider>
 	);
 }
