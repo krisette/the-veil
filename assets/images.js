@@ -19,7 +19,7 @@ export const images = {
 	'17-TheStar': require('./cards/17-TheStar.png'),
 	'18-TheMoon': require('./cards/18-TheMoon.png'),
 	'19-TheSun': require('./cards/19-TheSun.png'),
-	'20-Judgement': require('./cards/20-Judgement.png'),
+	'20-Judgment': require('./cards/20-Judgement.png'),
 	'21-TheWorld': require('./cards/21-TheWorld.png'),
 	CardBacks: require('./cards/CardBacks.png'),
 	Cups01: require('./cards/Cups01.png'),
