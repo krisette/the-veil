@@ -2,6 +2,7 @@
   "expo": {
     "name": "the-veil",
     "slug": "the-veil",
+    "originalFullName": "@krisette/the-veil",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -34,6 +35,16 @@
       }
     },
     "owner": "krisette",
-    "scheme": "theveil"
+    "scheme": "theveil",
+    "plugins": [
+        [
+        "expo-build-properties",
+          {
+            "ios": {
+              "useFrameworks": "static"
+            }
+          }
+      ]
+    ]
   }
 }
