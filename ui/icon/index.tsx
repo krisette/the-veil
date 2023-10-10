@@ -9,7 +9,7 @@ interface IconProps {
 }
 
 const Icon: React.FC<IconProps> = ({ name, size = 24, color = '#000' }) => {
-	return <FontAwesome name={name} size={size} color={color} />;
+  return <FontAwesome name={name} size={size} color={color} />;
 };
 
 export default Icon;
