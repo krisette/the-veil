@@ -82,9 +82,9 @@ export default function App() {
 
 	return (
 		<SafeAreaProvider>
-			<SafeAreaView>
+			<SafeAreaView className="bg-background">
 				<QueryClientProvider client={queryClient}>
-					<StatusBar style="auto" />
+					<StatusBar backgroundColor="#1C1C1C" style="light" />
 					{renderContent()}
 				</QueryClientProvider>
 			</SafeAreaView>

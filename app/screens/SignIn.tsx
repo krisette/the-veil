@@ -1,6 +1,7 @@
 import React from 'react';
 import { View } from 'react-native';
-import { GoogleSigninButton } from '@react-native-google-signin/google-signin';
+import { FilledButton } from '../../ui/buttons';
+import { Title } from '../../ui/text';
 
 interface Props {
   signIn: () => void;
@@ -8,12 +9,16 @@ interface Props {
 
 const SignIn: React.FC<Props> = ({ signIn }) => {
 	return (
-		<View className="bg-background h-full">
-			<GoogleSigninButton
-				size={GoogleSigninButton.Size.Wide}
-				color={GoogleSigninButton.Color.Light}
-				onPress={signIn}
-			/>
+		<View className="bg-background h-full items-center justify-center">
+			<View className="flex-1 justify-center items-center">
+				<Title className="text-[64px] text-primary lowercase">The Veil</Title>
+				<Title className="text-2xl text-default lowercase">
+          Modern Mystics Welcome
+				</Title>
+			</View>
+			<FilledButton onPress={signIn} iconLeft="google" size="large">
+        Sign in with Google
+			</FilledButton>
 		</View>
 	);
 };
