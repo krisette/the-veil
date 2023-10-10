@@ -1,49 +1,57 @@
-// useGoogleSignIn.ts
-import { useEffect, useState } from 'react';
-import { Alert } from 'react-native';
+import { useEffect, useState, useCallback } from 'react';
 import {
-	makeRedirectUri,
-	useAuthRequest,
-	useAutoDiscovery,
-} from 'expo-auth-session';
-import * as WebBrowser from 'expo-web-browser';
+	GoogleSignin,
+	statusCodes,
+} from '@react-native-google-signin/google-signin';
 import { auth } from '../config/firebaseConfig';
-import { GoogleAuthProvider, signInWithCredential, User } from 'firebase/auth';
+import { User, GoogleAuthProvider, signInWithCredential } from 'firebase/auth';
 
-WebBrowser.maybeCompleteAuthSession();
+GoogleSignin.configure({
+	scopes: ['email', 'profile'],
+	webClientId:
+    '41402172950-0lksne8nntksni0a9k7t2mruh1iukaup.apps.googleusercontent.com',
+	iosClientId:
+    '41402172950-mlcqkjaqd5mia1ag1lon0jj21dm293ea.apps.googleusercontent.com',
+	offlineAccess: false,
+});
 
 export const useGoogleSignIn = () => {
-	const discovery = useAutoDiscovery('https://accounts.google.com');
 	const [user, setUser] = useState<User | null>(null);
+	const [error, setError] = useState<string | null>(null);
 
-	const [request, response, promptAsync] = useAuthRequest(
-		{
-			clientId:
-        '41402172950-r5rei71epmu8esb396aui7j6ff6ud3c1.apps.googleusercontent.com',
-			redirectUri: makeRedirectUri({
-				native: 'theveil://redirect',
-			}),
-			scopes: ['openid', 'profile', 'email'],
-			responseType: 'code',
-		},
-		discovery,
-	);
+	const signIn = useCallback(async () => {
+		try {
+			await GoogleSignin.hasPlayServices();
+			const userInfo = await GoogleSignin.signIn();
+
+			const googleCredential = GoogleAuthProvider.credential(userInfo.idToken);
+			const firebaseUser = await signInWithCredential(auth, googleCredential);
+			setUser(firebaseUser.user);
+		} catch (error) {
+			if (error.code === statusCodes.SIGN_IN_CANCELLED) {
+				setError('User cancelled the login flow');
+			} else {
+				setError(error.message);
+			}
+		}
+	}, []);
+
+	const signOut = useCallback(async () => {
+		try {
+			await GoogleSignin.revokeAccess();
+			await GoogleSignin.signOut();
+			await auth().signOut();
+			setUser(null);
+		} catch (error) {
+			setError(error.message);
+		}
+	}, []);
 
 	useEffect(() => {
-		if (response?.type === 'success') {
-			const { access_token } = response.params;
-
-			const credential = GoogleAuthProvider.credential(null, access_token);
-
-			signInWithCredential(auth, credential)
-				.then((userCredential) => {
-					setUser(userCredential.user);
-				})
-				.catch((error) => {
-					Alert.alert('Firebase auth error', error.message);
-				});
+		if (error) {
+			console.error(error);
 		}
-	}, [response]);
+	}, [error]);
 
-	return { user, request, response, promptAsync };
+	return { user, signIn, signOut };
 };
