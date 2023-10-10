@@ -11,9 +11,14 @@ const HomePage = () => {
 	const [isModalVisible, setModalVisible] = useState(false);
 	const [, setIsLoading] = useState(false);
 	const { selectedCards, drawCards } = useTarot();
+	const [resetFlag, setResetFlag] = useState(false);
 
 	const toggleModal = () => {
 		setModalVisible(!isModalVisible);
+	};
+
+	const resetModal = () => {
+		setResetFlag((prev) => !prev);
 	};
 
 	const handleDrawCards = useCallback(
@@ -25,6 +30,8 @@ const HomePage = () => {
 			setIsLoading(false);
 
 			toggleModal();
+
+			resetModal();
 		},
 		[drawCards],
 	);
@@ -32,7 +39,7 @@ const HomePage = () => {
 	return (
 		<View className="pt-16 bg-background h-full">
 			<View className="flex justify-center items-center">
-				<Title className="text-primary text-center text-[42px] tracking-[1px] lowercase">
+				<Title className="text-primary text-center text-[36px] lowercase">
           The Veil
 				</Title>
 				<View className="bg-zinc-700 h-[1px] mt-3 w-3/4" />
@@ -56,6 +63,7 @@ const HomePage = () => {
 				visible={isModalVisible}
 				cards={selectedCards}
 				onClose={toggleModal}
+				reset={resetFlag}
 			/>
 		</View>
 	);

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, Text, Image, TouchableOpacity, ScrollView } from 'react-native';
 import Modal from 'react-native-modal';
 import { images } from '../../assets/images';
@@ -12,9 +12,15 @@ interface CardModalProps {
   visible: boolean;
   cards: Card[];
   onClose: () => void;
+  reset: boolean;
 }
 
-const CardModal: React.FC<CardModalProps> = ({ visible, cards, onClose }) => {
+const CardModal: React.FC<CardModalProps> = ({
+	visible,
+	cards,
+	onClose,
+	reset,
+}) => {
 	const [flippedIndices, setFlippedIndices] = useState<number[]>([]);
 	const [showResultModal, setShowResultModal] = useState(false);
 	const [apiResult, setApiResult] = useState<string | null>('');
@@ -42,6 +48,12 @@ const CardModal: React.FC<CardModalProps> = ({ visible, cards, onClose }) => {
 		}
 	};
 
+	useEffect(() => {
+		if (!visible || reset) {
+			setFlippedIndices([]);
+		}
+	}, [visible, reset]);
+
 	return (
 		<Modal
 			isVisible={visible}
@@ -49,11 +61,11 @@ const CardModal: React.FC<CardModalProps> = ({ visible, cards, onClose }) => {
 			onBackButtonPress={onClose}
 			className="justify-center items-center m-0"
 		>
-			<View className="w-[90%] h-[80%]">
+			<View className="w-[90%] self-center">
 				<ScrollView
 					horizontal
 					showsHorizontalScrollIndicator={false}
-					className="px-8"
+					className="flex-row"
 				>
 					{cards.map((card, index) => {
 						const isFlipped = flippedIndices.includes(index);
@@ -71,18 +83,18 @@ const CardModal: React.FC<CardModalProps> = ({ visible, cards, onClose }) => {
 								className="w-[300px] h-[527px] mx-4 justify-center items-center"
 							>
 								{isFlipped ? (
-									<View className="w-full h-full justify-center items-center p-4 bg-secondaryBackground rounded-lg">
+									<View className="w-full h-full justify-center items-center p-4 bg-secondaryBackground rounded-xl">
 										<Title className="text-[24px] text-primary">
 											{card.name}
 										</Title>
 										{card.orientation !== 'up' && (
 											<Body className="text-[16px] text-primary">Reversed</Body>
 										)}
-										<Text className="text-secondary mt-4">
+										<Body className="text-default mt-4">
 											{card.orientation === 'up'
 												? card.meaning_up
 												: card.meaning_rev}
-										</Text>
+										</Body>
 									</View>
 								) : (
 									<Image
@@ -114,7 +126,7 @@ const CardModal: React.FC<CardModalProps> = ({ visible, cards, onClose }) => {
 			<Modal isVisible={showResultModal}>
 				<View className="h-[50%] bg-white">
 					<ScrollView className="flex-1">
-						<View className="p-20">
+						<View className="p-5">
 							<Text>API Result:</Text>
 							{isInterpreting ? <ReadingSkeleton /> : <Text>{apiResult}</Text>}
 						</View>
