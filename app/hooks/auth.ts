@@ -24,7 +24,7 @@ export const useGoogleSignIn = () => {
 				native: 'theveil://redirect',
 			}),
 			scopes: ['openid', 'profile', 'email'],
-			responseType: 'token',
+			responseType: 'code',
 		},
 		discovery,
 	);
