@@ -1,4 +1,3 @@
-// In your HomePage component
 import React, { useCallback, useState } from 'react';
 import { ScrollView, View } from 'react-native';
 import useTarot from '../hooks';
@@ -6,16 +5,13 @@ import CardModal from '../components/CardModal';
 import Title from '../../ui/text/Title';
 import { TextButton } from '../../ui/buttons';
 import { Body } from '../../ui/text';
-import { CombinedUser } from '../types';
+import { useAuth } from '../context/auth';
 
-interface Props {
-  user: CombinedUser;
-}
-
-const HomePage: React.FC<Props> = ({ user }) => {
+const HomePage: React.FC = () => {
   const [isModalVisible, setModalVisible] = useState(false);
   const [, setIsLoading] = useState(false);
   const { selectedCards, drawCards } = useTarot();
+  const { user } = useAuth();
   const [resetFlag, setResetFlag] = useState(false);
 
   const greeting = () => {
@@ -64,7 +60,7 @@ const HomePage: React.FC<Props> = ({ user }) => {
       </View>
       <ScrollView className="px-8">
         <Body className="text-center">
-          {greeting()}, {user.google.givenName}. Choose your spread.
+          {greeting()}, {user?.google.givenName}. Choose your spread.
         </Body>
         <TextButton
           onPress={() => handleDrawCards(1)}

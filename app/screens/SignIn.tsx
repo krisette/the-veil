@@ -2,12 +2,24 @@ import React from 'react';
 import { View } from 'react-native';
 import { FilledButton } from '../../ui/buttons';
 import { Title } from '../../ui/text';
+import { useNavigation } from '@react-navigation/native';
 
 interface Props {
   signIn: () => void;
 }
 
 const SignIn: React.FC<Props> = ({ signIn }) => {
+  const navigation = useNavigation();
+
+  const handleSignIn = async () => {
+    try {
+      await signIn();
+      navigation.navigate('HomePage');
+    } catch (error) {
+      console.error('Sign in error:', error);
+    }
+  };
+
   return (
     <View className="bg-background h-full items-center justify-center">
       <View className="flex-1 justify-center items-center">
@@ -16,7 +28,7 @@ const SignIn: React.FC<Props> = ({ signIn }) => {
           Modern Mystics Welcome
         </Title>
       </View>
-      <FilledButton onPress={signIn} iconLeft="google" size="large">
+      <FilledButton onPress={handleSignIn} iconLeft="google" size="large">
         Sign in with Google
       </FilledButton>
     </View>
