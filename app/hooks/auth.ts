@@ -4,7 +4,8 @@ import {
 	statusCodes,
 } from '@react-native-google-signin/google-signin';
 import { auth } from '../config/firebaseConfig';
-import { User, GoogleAuthProvider, signInWithCredential } from 'firebase/auth';
+import { GoogleAuthProvider, signInWithCredential } from 'firebase/auth';
+import { CombinedUser } from '../types';
 
 GoogleSignin.configure({
 	scopes: ['email', 'profile'],
@@ -16,7 +17,7 @@ GoogleSignin.configure({
 });
 
 export const useGoogleSignIn = () => {
-	const [user, setUser] = useState<User | null>(null);
+	const [user, setUser] = useState<CombinedUser | null>(null);
 	const [error, setError] = useState<string | null>(null);
 
 	const signIn = useCallback(async () => {
@@ -26,7 +27,13 @@ export const useGoogleSignIn = () => {
 
 			const googleCredential = GoogleAuthProvider.credential(userInfo.idToken);
 			const firebaseUser = await signInWithCredential(auth, googleCredential);
-			setUser(firebaseUser.user);
+
+			const augmentedUser = {
+				firebase: firebaseUser.user,
+				google: userInfo.user,
+			};
+
+			setUser(augmentedUser);
 		} catch (error) {
 			if (error.code === statusCodes.SIGN_IN_CANCELLED) {
 				setError('User cancelled the login flow');

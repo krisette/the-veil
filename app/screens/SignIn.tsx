@@ -1,5 +1,6 @@
 import React from 'react';
-import { Button, View } from 'react-native';
+import { View } from 'react-native';
+import { GoogleSigninButton } from '@react-native-google-signin/google-signin';
 
 interface Props {
   signIn: () => void;
@@ -7,8 +8,12 @@ interface Props {
 
 const SignIn: React.FC<Props> = ({ signIn }) => {
 	return (
-		<View>
-			<Button title="Sign in with Google" onPress={signIn} />
+		<View className="bg-background h-full">
+			<GoogleSigninButton
+				size={GoogleSigninButton.Size.Wide}
+				color={GoogleSigninButton.Color.Light}
+				onPress={signIn}
+			/>
 		</View>
 	);
 };

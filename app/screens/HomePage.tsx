@@ -6,10 +6,10 @@ import CardModal from '../components/CardModal';
 import Title from '../../ui/text/Title';
 import { TextButton } from '../../ui/buttons';
 import { Body } from '../../ui/text';
-import { User } from 'firebase/auth';
+import { CombinedUser } from '../types';
 
 interface Props {
-  user: User;
+  user: CombinedUser;
 }
 
 const HomePage: React.FC<Props> = ({ user }) => {
@@ -17,8 +17,6 @@ const HomePage: React.FC<Props> = ({ user }) => {
 	const [, setIsLoading] = useState(false);
 	const { selectedCards, drawCards } = useTarot();
 	const [resetFlag, setResetFlag] = useState(false);
-
-	const firstName = user.displayName?.split(' ')[0];
 
 	const greeting = () => {
 		const date = new Date();
@@ -66,7 +64,7 @@ const HomePage: React.FC<Props> = ({ user }) => {
 			</View>
 			<ScrollView className="px-8">
 				<Body className="text-center">
-					{greeting()}, {firstName}. Choose your spread.
+					{greeting()}, {user.google.givenName}. Choose your spread.
 				</Body>
 				<TextButton
 					onPress={() => handleDrawCards(1)}
