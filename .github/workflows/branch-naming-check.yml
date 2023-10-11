@@ -1,10 +1,6 @@
 name: "Branch Naming Convention Check"
 
 on:
-  push:
-    branches-ignore: 
-      - 'main'
-      - 'dev'
   pull_request:
     branches-ignore: 
       - 'main'
@@ -21,3 +17,18 @@ jobs:
             echo "Invalid branch name! Branch names in this repo must adhere to the pattern: '(feature|bug|chore)/<name>'."
             exit 1
           fi
+      
+      - name: Leave a comment if branch name is invalid
+        if: failure()
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          COMMENT_BODY="🚨 Invalid branch name! Branch names in this repo must adhere to the pattern: '(feature|bug|chore)/<name>'. Please correct it and open a new PR. 🚨"
+          PR_API_URL="${{ github.event.pull_request.comments_url }}"
+          
+          curl \
+            -X POST \
+            -H "Authorization: token $GITHUB_TOKEN" \
+            -H "Accept: application/vnd.github.v3+json" \
+            "$PR_API_URL" \
+            -d "{\"body\": \"$COMMENT_BODY\"}"
