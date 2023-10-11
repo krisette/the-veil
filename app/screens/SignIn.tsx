@@ -3,13 +3,11 @@ import { View } from 'react-native';
 import { FilledButton } from '../../ui/buttons';
 import { Title } from '../../ui/text';
 import { useNavigation } from '@react-navigation/native';
+import { useGoogleSignIn } from '../hooks/auth';
 
-interface Props {
-  signIn: () => void;
-}
-
-const SignIn: React.FC<Props> = ({ signIn }) => {
+const SignIn: React.FC = () => {
   const navigation = useNavigation();
+  const { signIn } = useGoogleSignIn();
 
   const handleSignIn = async () => {
     try {
@@ -19,6 +17,8 @@ const SignIn: React.FC<Props> = ({ signIn }) => {
       console.error('Sign in error:', error);
     }
   };
+
+  console.log('SignIn is rendering');
 
   return (
     <View className="bg-background h-full items-center justify-center">

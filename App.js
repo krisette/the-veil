@@ -39,6 +39,7 @@ import {
 } from '@expo-google-fonts/libre-baskerville';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { useGoogleSignIn } from './app/hooks/auth';
+import SignIn from './app/screens/SignIn';
 
 const queryClient = new QueryClient();
 
@@ -72,6 +73,8 @@ export default function App() {
   });
 
   if (!fontsLoaded) return null;
+
+  console.log('App Component is rendering');
 
   return (
     <NavigationContainer>
