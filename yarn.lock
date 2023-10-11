@@ -3885,7 +3885,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:~18.2.28":
+"@types/react@npm:~18.2.14":
   version: 18.2.28
   resolution: "@types/react@npm:18.2.28"
   dependencies:
@@ -12893,7 +12893,7 @@ __metadata:
     "@react-navigation/native-stack": ^6.9.14
     "@react-navigation/stack": ^6.3.18
     "@testing-library/react-native": ^12.3.0
-    "@types/react": ~18.2.28
+    "@types/react": ~18.2.14
     "@types/react-native": ^0.72.3
     "@typescript-eslint/eslint-plugin": ^6.7.5
     "@typescript-eslint/parser": ^6.7.5
