@@ -1,13 +1,14 @@
 import React from 'react';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { View } from 'react-native';
 import { FilledButton } from '../../ui/buttons';
 import { Title } from '../../ui/text';
 import { useNavigation } from '@react-navigation/native';
 import { useGoogleSignIn } from '../hooks/auth';
 import { StackNavigationProp } from '@react-navigation/stack';
-import { RootStackParamList } from '../../types';
+import { RootStackParamList } from '../navigation/types';
 
-const SignIn: React.FC = () => {
+const Login: React.FC = () => {
   const navigation =
     useNavigation<StackNavigationProp<RootStackParamList, 'Login'>>();
   const { signIn } = useGoogleSignIn();
@@ -15,16 +16,14 @@ const SignIn: React.FC = () => {
   const handleSignIn = async () => {
     try {
       await signIn();
-      navigation.navigate('Home');
+      navigation.navigate('AppTabs');
     } catch (error) {
       console.error('Sign in error:', error);
     }
   };
 
-  console.log('SignIn is rendering');
-
   return (
-    <View className="bg-background h-full items-center justify-center">
+    <SafeAreaView className="bg-background h-full items-center justify-center">
       <View className="flex-1 justify-center items-center">
         <Title className="text-[64px] text-primary lowercase">The Veil</Title>
         <Title className="text-2xl text-default lowercase">
@@ -35,12 +34,12 @@ const SignIn: React.FC = () => {
         onPress={handleSignIn}
         iconLeft="google"
         size="large"
-        className="mb-5"
+        className="mb-12"
       >
         Sign in with Google
       </FilledButton>
-    </View>
+    </SafeAreaView>
   );
 };
 
-export default SignIn;
+export default Login;

@@ -1,10 +1,7 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { SafeAreaView, SafeAreaProvider } from 'react-native-safe-area-context';
-import { Text, View } from 'react-native';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import AppNavigator from './app/navigation/AppNavigator';
 import { AuthProvider } from './app/context/auth';
 import {
@@ -40,8 +37,6 @@ import {
   LibreBaskerville_700Bold,
 } from '@expo-google-fonts/libre-baskerville';
 import { QueryClient, QueryClientProvider } from 'react-query';
-import { useGoogleSignIn } from './app/hooks/auth';
-import SignIn from './app/screens/SignIn';
 
 const queryClient = new QueryClient();
 
@@ -76,8 +71,6 @@ export default function App() {
 
   if (!fontsLoaded) return null;
 
-  console.log('App Component is rendering');
-
   return (
     <NavigationContainer>
       <SafeAreaProvider>
@@ -85,7 +78,6 @@ export default function App() {
           <QueryClientProvider client={queryClient}>
             <StatusBar style="light" />
             <AppNavigator />
-            {/* <SignIn /> */}
           </QueryClientProvider>
         </AuthProvider>
       </SafeAreaProvider>
