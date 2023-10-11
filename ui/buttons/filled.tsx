@@ -8,6 +8,7 @@ interface Props {
   iconLeft?: FontAwesomeNames;
   iconRight?: FontAwesomeNames;
   size: 'small' | 'medium' | 'large';
+  className?: string;
   children?: React.ReactNode;
 }
 
@@ -16,31 +17,48 @@ const FilledButton: React.FC<Props> = ({
   iconLeft,
   iconRight,
   size = 'medium',
+  className,
   children,
 }) => {
-  const textSizeClass =
-    size === 'large' ? 'text-lg' : size === 'small' ? 'text-sm' : 'text-base';
-
-  const sizes = {
-    small: '1',
-    medium: '2',
-    large: '4',
+  const sizeMap = {
+    small: {
+      padding: 'p-1',
+      text: 'text-sm',
+      iconMargin: 'ml-1 mr-1',
+    },
+    medium: {
+      padding: 'p-2',
+      text: 'text-base',
+      iconMargin: 'ml-2 mr-2',
+    },
+    large: {
+      padding: 'p-4',
+      text: 'text-lg',
+      iconMargin: 'ml-4 mr-4',
+    },
   };
+
+  const sizeClasses = sizeMap[size] || sizeMap['medium'];
+
+  const textClasses = [
+    'text-background',
+    'font-inconsolata',
+    'uppercase',
+    sizeClasses.text,
+    iconLeft && sizeClasses.iconMargin.split(' ')[0],
+    iconRight && sizeClasses.iconMargin.split(' ')[1],
+  ]
+    .filter(Boolean)
+    .join(' ');
 
   return (
     <TouchableOpacity
       onPress={onPress}
-      className={`flex-row items-center bg-white border border-white p-${sizes[size]} m-1 rounded-5`}
+      className={`flex-row items-center bg-white border border-white ${sizeClasses.padding} m-1 rounded-5 ${className}`}
     >
       <View className="flex-row items-center px-3">
         {iconLeft && <Icon name={iconLeft} size={24} color="black" />}
-        <Text
-          className={`text-background underline font-inconsolata uppercase ${textSizeClass} ${
-            iconLeft && `ml-${sizes[size]}`
-          } ${iconRight && `mr-${sizes[size]}`}`}
-        >
-          {children}
-        </Text>
+        <Text className={textClasses}>{children}</Text>
         {iconRight && <Icon name={iconRight} size={24} color="black" />}
       </View>
     </TouchableOpacity>

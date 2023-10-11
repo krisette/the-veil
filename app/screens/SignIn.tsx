@@ -4,15 +4,18 @@ import { FilledButton } from '../../ui/buttons';
 import { Title } from '../../ui/text';
 import { useNavigation } from '@react-navigation/native';
 import { useGoogleSignIn } from '../hooks/auth';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { RootStackParamList } from '../../types';
 
 const SignIn: React.FC = () => {
-  const navigation = useNavigation();
+  const navigation =
+    useNavigation<StackNavigationProp<RootStackParamList, 'Login'>>();
   const { signIn } = useGoogleSignIn();
 
   const handleSignIn = async () => {
     try {
       await signIn();
-      navigation.navigate('HomePage');
+      navigation.navigate('Home');
     } catch (error) {
       console.error('Sign in error:', error);
     }
@@ -28,7 +31,12 @@ const SignIn: React.FC = () => {
           Modern Mystics Welcome
         </Title>
       </View>
-      <FilledButton onPress={handleSignIn} iconLeft="google" size="large">
+      <FilledButton
+        onPress={handleSignIn}
+        iconLeft="google"
+        size="large"
+        className="mb-5"
+      >
         Sign in with Google
       </FilledButton>
     </View>

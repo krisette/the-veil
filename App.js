@@ -2,7 +2,9 @@
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaView, SafeAreaProvider } from 'react-native-safe-area-context';
+import { Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import AppNavigator from './app/navigation/AppNavigator';
 import { AuthProvider } from './app/context/auth';
 import {
@@ -80,12 +82,11 @@ export default function App() {
     <NavigationContainer>
       <SafeAreaProvider>
         <AuthProvider>
-          <SafeAreaView className="bg-background">
-            <QueryClientProvider client={queryClient}>
-              <StatusBar backgroundColor="#1C1C1C" style="light" />
-              <AppNavigator />
-            </QueryClientProvider>
-          </SafeAreaView>
+          <QueryClientProvider client={queryClient}>
+            <StatusBar style="light" />
+            <AppNavigator />
+            {/* <SignIn /> */}
+          </QueryClientProvider>
         </AuthProvider>
       </SafeAreaProvider>
     </NavigationContainer>
