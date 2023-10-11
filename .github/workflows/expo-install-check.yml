@@ -1,0 +1,65 @@
+name: Expo Install Check and Auto PR
+
+on:
+  pull_request:
+    types: [closed]
+    branches:
+      - main
+
+jobs:
+  check_and_fix:
+    if: github.event.pull_request.merged == true && github.actor == 'dependabot[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          ref: main
+          fetch-depth: 0  # Fetches all history for all branches and tags.
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16' # Use the version suitable for your project
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Identify Updated Packages
+        id: updated_packages
+        run: |
+          UPDATED_PACKAGES=$(git diff HEAD~1 HEAD -- package.json | grep '"[a-z\-\_0-9]*": ".*"' | grep -Eoi '"[a-z\-\_0-9]*": ".*"' | grep -Eoi '[a-z\-\_0-9]*')
+          echo "Updated packages: $UPDATED_PACKAGES"
+          echo "::set-output name=packages::$UPDATED_PACKAGES"
+
+      - name: Run Expo Install for Updated Packages
+        run: |
+          PACKAGES=(${{ steps.updated_packages.outputs.packages }})
+          for PACKAGE in "${PACKAGES[@]}"; do
+            npx expo install "$PACKAGE"
+          done
+
+      - name: Check for Changes
+        id: check_changes
+        run: |
+          git status
+          if [[ `git status --porcelain` ]]; then
+            echo "::set-output name=changed::true"
+            git config user.name 'GitHub Action'
+            git config user.email 'action@github.com'
+            git add .
+            git commit -m 'chore(deps): ensure Expo compatibility post-update'
+          else
+            echo "::set-output name=changed::false"
+          fi
+
+      - name: Create PR if Changed
+        if: steps.check_changes.outputs.changed == 'true'
+        uses: peter-evans/create-pull-request@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "chore(deps): ensure Expo compatibility post-update"
+          title: "chore(deps): ensure Expo compatibility post-update"
+          body: "After the latest dependency updates, `expo install` was run to ensure compatibility. Review the changes to validate and merge them."
+          branch: "expo-compatibility-check"
+          base: "main"
