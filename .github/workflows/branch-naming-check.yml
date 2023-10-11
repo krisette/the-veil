@@ -10,14 +10,16 @@ jobs:
     steps:
       - name: Check branch name
         run: |
-          BRANCH_NAME=$(echo ${GITHUB_HEAD_REF} | grep -E "^(feature|bug|chore)/[a-zA-Z0-9_-]+$")
-          if [[ ! $BRANCH_NAME ]]; then
-            echo "Invalid branch name!"
-            exit 1
+          if [[ "${{ github.actor }}" != "dependabot[bot]" && "${{ github.actor }}" != "dependabot-preview[bot]" ]]; then
+            BRANCH_NAME=$(echo ${GITHUB_HEAD_REF} | grep -E "^(feature|bug|chore)/[a-zA-Z0-9_-]+$")
+            if [[ ! $BRANCH_NAME ]]; then
+              echo "Invalid branch name!"
+              exit 1
+            fi
+          else
+            echo "Dependabot PR, skipping branch name check."
           fi
-        if: ${{ github.actor != 'dependabot[bot]' && github.actor != 'dependabot-preview[bot]' }}
-
-      
+          
       - name: Leave a comment if branch name is invalid
         if: failure()
         env:
