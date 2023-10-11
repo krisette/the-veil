@@ -5,7 +5,7 @@ import {
 } from '@react-native-google-signin/google-signin';
 import { auth } from '../config/firebaseConfig';
 import { GoogleAuthProvider, signInWithCredential } from 'firebase/auth';
-import { CombinedUser } from '../types';
+import { useAuth } from '../context/auth';
 
 GoogleSignin.configure({
   scopes: ['email', 'profile'],
@@ -17,7 +17,7 @@ GoogleSignin.configure({
 });
 
 export const useGoogleSignIn = () => {
-  const [user, setUser] = useState<CombinedUser | null>(null);
+  const { setUser } = useAuth();
   const [error, setError] = useState<string | null>(null);
 
   const signIn = useCallback(async () => {
@@ -60,5 +60,5 @@ export const useGoogleSignIn = () => {
     }
   }, [error]);
 
-  return { user, signIn, signOut };
+  return { signIn, signOut };
 };

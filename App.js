@@ -1,9 +1,9 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import HomePage from './app/screens/HomePage';
-import SignIn from './app/screens/SignIn';
-import { SafeAreaView, SafeAreaProvider } from 'react-native-safe-area-context';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { NavigationContainer } from '@react-navigation/native';
+import AppNavigator from './app/navigation/AppNavigator';
+import { AuthProvider } from './app/context/auth';
 import {
   useFonts,
   Inconsolata_200ExtraLight,
@@ -37,12 +37,10 @@ import {
   LibreBaskerville_700Bold,
 } from '@expo-google-fonts/libre-baskerville';
 import { QueryClient, QueryClientProvider } from 'react-query';
-import { useGoogleSignIn } from './app/hooks/auth';
 
 const queryClient = new QueryClient();
 
 export default function App() {
-  const { user, signIn, signOut } = useGoogleSignIn();
   let [fontsLoaded] = useFonts({
     Inconsolata_200ExtraLight,
     Inconsolata_300Light,
@@ -73,21 +71,16 @@ export default function App() {
 
   if (!fontsLoaded) return null;
 
-  const renderContent = () => {
-    if (user) {
-      return <HomePage user={user} />;
-    }
-    return <SignIn signIn={signIn} />;
-  };
-
   return (
-    <SafeAreaProvider>
-      <SafeAreaView className="bg-background">
-        <QueryClientProvider client={queryClient}>
-          <StatusBar backgroundColor="#1C1C1C" style="light" />
-          {renderContent()}
-        </QueryClientProvider>
-      </SafeAreaView>
-    </SafeAreaProvider>
+    <NavigationContainer>
+      <SafeAreaProvider>
+        <AuthProvider>
+          <QueryClientProvider client={queryClient}>
+            <StatusBar style="light" />
+            <AppNavigator />
+          </QueryClientProvider>
+        </AuthProvider>
+      </SafeAreaProvider>
+    </NavigationContainer>
   );
 }

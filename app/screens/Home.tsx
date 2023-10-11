@@ -1,21 +1,18 @@
-// In your HomePage component
 import React, { useCallback, useState } from 'react';
 import { ScrollView, View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import useTarot from '../hooks';
 import CardModal from '../components/CardModal';
 import Title from '../../ui/text/Title';
 import { TextButton } from '../../ui/buttons';
 import { Body } from '../../ui/text';
-import { CombinedUser } from '../types';
+import { useAuth } from '../context/auth';
 
-interface Props {
-  user: CombinedUser;
-}
-
-const HomePage: React.FC<Props> = ({ user }) => {
+const Home: React.FC = () => {
   const [isModalVisible, setModalVisible] = useState(false);
   const [, setIsLoading] = useState(false);
   const { selectedCards, drawCards } = useTarot();
+  const { user } = useAuth();
   const [resetFlag, setResetFlag] = useState(false);
 
   const greeting = () => {
@@ -55,16 +52,19 @@ const HomePage: React.FC<Props> = ({ user }) => {
   );
 
   return (
-    <View className="pt-16 bg-background h-full">
+    <SafeAreaView className="bg-background h-full">
       <View className="flex justify-center items-center">
         <Title className="text-primary text-center text-[36px] lowercase">
           The Veil
         </Title>
-        <View className="bg-zinc-700 h-[1px] mt-3 w-3/4" />
+        <View className="bg-outline h-[1px] mt-1 w-[92%]" />
       </View>
-      <ScrollView className="px-8">
+      <ScrollView className="px-8 pt-8">
+        <Body className="text-center mb-2">
+          {`${greeting()}, ${user?.google.givenName}.`}
+        </Body>
         <Body className="text-center">
-          {greeting()}, {user.google.givenName}. Choose your spread.
+          Choose your spread and see what the cards have to say.
         </Body>
         <TextButton
           onPress={() => handleDrawCards(1)}
@@ -85,8 +85,8 @@ const HomePage: React.FC<Props> = ({ user }) => {
         onClose={toggleModal}
         reset={resetFlag}
       />
-    </View>
+    </SafeAreaView>
   );
 };
 
-export default HomePage;
+export default Home;
