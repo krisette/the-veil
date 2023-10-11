@@ -23,10 +23,12 @@ const Login: React.FC = () => {
   };
 
   return (
-    <SafeAreaView className="bg-background h-full items-center justify-center">
+    <SafeAreaView className="bg-background dark:bg-backgroundDark h-full items-center justify-center">
       <View className="flex-1 justify-center items-center">
-        <Title className="text-[64px] text-primary lowercase">The Veil</Title>
-        <Title className="text-2xl text-default lowercase">
+        <Title className="text-[64px] text-primary dark:text-primaryDark lowercase">
+          The Veil
+        </Title>
+        <Title className="text-2xl text-default dark:text-defaultDark lowercase">
           Modern Mystics Welcome
         </Title>
       </View>

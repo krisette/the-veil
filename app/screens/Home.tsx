@@ -52,9 +52,9 @@ const Home: React.FC = () => {
   );
 
   return (
-    <SafeAreaView className="bg-background h-full">
+    <SafeAreaView className="bg-background dark:bg-backgroundDark h-full">
       <View className="flex justify-center items-center">
-        <Title className="text-primary text-center text-[36px] lowercase">
+        <Title className="text-primary dark:text-primaryDark text-center text-[36px] lowercase">
           The Veil
         </Title>
         <View className="bg-outline h-[1px] mt-1 w-[92%]" />

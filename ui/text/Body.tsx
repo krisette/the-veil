@@ -9,7 +9,7 @@ interface Props extends TextProps {
 const Body: React.FC<Props> = ({ children, className, ...rest }) => {
   return (
     <Text
-      className={`font-libreBaskerville text-default text-base ${className}`}
+      className={`font-libreBaskerville text-default dark:text-defaultDark text-base ${className}`}
       {...rest}
     >
       {children}
