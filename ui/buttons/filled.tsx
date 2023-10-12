@@ -43,6 +43,8 @@ const FilledButton: React.FC<Props> = ({
   const textClasses = [
     'text-background',
     'font-inconsolata',
+    'text-black',
+    'dark:text-white',
     'uppercase',
     sizeClasses.text,
     iconLeft && sizeClasses.iconMargin.split(' ')[0],

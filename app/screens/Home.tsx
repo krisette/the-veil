@@ -57,7 +57,7 @@ const Home: React.FC = () => {
         <Title className="text-primary dark:text-primaryDark text-center text-[36px] lowercase">
           The Veil
         </Title>
-        <View className="bg-outline h-[1px] mt-1 w-[92%]" />
+        <View className="bg-[#E4DFD1] dark:bg-outlineDark h-[1px] mt-1 w-[92%]" />
       </View>
       <ScrollView className="px-8 pt-8">
         <Body className="text-center mb-2">

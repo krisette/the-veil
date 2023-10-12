@@ -22,7 +22,7 @@ const TextButton: React.FC<Props> = ({ onPress, iconName, children }) => {
         {children}
       </Text>
       {iconName && (
-        <Icon name={iconName} size={24} color="white" darkColor="black" />
+        <Icon name={iconName} size={24} color="black" darkColor="white" />
       )}
     </TouchableOpacity>
   );
