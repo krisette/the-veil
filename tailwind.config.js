@@ -1,4 +1,7 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 /** @type {import('tailwindcss').Config} */
+const colors = require('./colors');
+
 module.exports = {
   content: [
     './App.{js,jsx,ts,tsx}',
@@ -15,18 +18,7 @@ module.exports = {
         libreBaskerville: ['LibreBaskerville_400Regular'],
         libreBaskervilleBold: ['LibreBaskerville_700Bold'],
       },
-      colors: {
-        background: '#1C1C1C',
-        secondaryBackground: '#292929',
-        tertiaryBackground: '#756D82',
-        default: '#F0F0F0',
-        primary: '#B8860B',
-        secondary: '#D1A9B7',
-        tertiary: '#D8D4DC',
-        error: '#B67267',
-        success: '#89A97D',
-        outline: '#55555F',
-      },
+      colors,
     },
   },
   plugins: [],

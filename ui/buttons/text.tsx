@@ -1,6 +1,6 @@
 import React from 'react';
 import { TouchableOpacity, Text } from 'react-native';
-import FontAwesome from '@expo/vector-icons/FontAwesome';
+import Icon from '../icon';
 
 interface Props {
   onPress: () => void;
@@ -15,13 +15,15 @@ const TextButton: React.FC<Props> = ({ onPress, iconName, children }) => {
       className="flex-row items-center bg-transparent p-2 m-1"
     >
       <Text
-        className={`text-white underline font-inconsolata uppercase ${
+        className={`dark:text-white text-black underline font-inconsolata uppercase ${
           iconName && 'mr-2'
         }`}
       >
         {children}
       </Text>
-      {iconName && <FontAwesome name={iconName} size={24} color="white" />}
+      {iconName && (
+        <Icon name={iconName} size={24} color="black" darkColor="white" />
+      )}
     </TouchableOpacity>
   );
 };

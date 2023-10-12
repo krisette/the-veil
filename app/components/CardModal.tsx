@@ -3,7 +3,7 @@ import { View, Text, Image, TouchableOpacity, ScrollView } from 'react-native';
 import Modal from 'react-native-modal';
 import { images } from '../../assets/images';
 import { Body, Title } from '../../ui/text';
-import { TextButton } from '../../ui/buttons';
+import { FilledButton } from '../../ui/buttons';
 import { Card } from '../types';
 import useTarot from '../hooks';
 import ReadingSkeleton from './ReadingSkeleton';
@@ -83,14 +83,16 @@ const CardModal: React.FC<CardModalProps> = ({
                 className="w-[300px] h-[527px] mx-4 justify-center items-center"
               >
                 {isFlipped ? (
-                  <View className="w-full h-full justify-center items-center p-4 bg-secondaryBackground rounded-xl">
-                    <Title className="text-[24px] text-primary">
+                  <View className="w-full h-full justify-center items-center p-4 bg-secondaryBg dark:bg-secondaryBgDark rounded-xl">
+                    <Title className="text-[24px] text-primary dark:text-primaryDark">
                       {card.name}
                     </Title>
                     {card.orientation !== 'up' && (
-                      <Body className="text-[16px] text-primary">Reversed</Body>
+                      <Body className="text-[16px] text-primary dark:text-primaryDark">
+                        Reversed
+                      </Body>
                     )}
-                    <Body className="text-default mt-4">
+                    <Body className="text-default dark:text-defaultDark mt-4">
                       {card.orientation === 'up'
                         ? card.meaning_up
                         : card.meaning_rev}
@@ -116,10 +118,10 @@ const CardModal: React.FC<CardModalProps> = ({
           })}
         </ScrollView>
         {cards.length === 3 && (
-          <View className="items-center mb-4">
-            <TextButton onPress={handleShowResult}>
+          <View className="items-center mb-4 mt-2">
+            <FilledButton size="medium" onPress={handleShowResult}>
               What does it all mean? 👀
-            </TextButton>
+            </FilledButton>
           </View>
         )}
       </View>

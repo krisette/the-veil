@@ -2066,36 +2066,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@expo/config-plugins@npm:^4.0.2":
-  version: 4.1.5
-  resolution: "@expo/config-plugins@npm:4.1.5"
-  dependencies:
-    "@expo/config-types": ^45.0.0
-    "@expo/json-file": 8.2.36
-    "@expo/plist": 0.0.18
-    "@expo/sdk-runtime-versions": ^1.0.0
-    "@react-native/normalize-color": ^2.0.0
-    chalk: ^4.1.2
-    debug: ^4.3.1
-    find-up: ~5.0.0
-    getenv: ^1.0.0
-    glob: 7.1.6
-    resolve-from: ^5.0.0
-    semver: ^7.3.5
-    slash: ^3.0.0
-    xcode: ^3.0.1
-    xml2js: 0.4.23
-  checksum: f631217251281b1e25949adbec175ef1362dd08d837ce676ed8350c1401b5764091ba100f76f42adb623e4cdcde5b270be77ad6606f978d419c07fd8c81b701c
-  languageName: node
-  linkType: hard
-
-"@expo/config-types@npm:^45.0.0":
-  version: 45.0.0
-  resolution: "@expo/config-types@npm:45.0.0"
-  checksum: 9b4866540654da61af0985ebfc975b3cb690625acf7742443a7e56263bf134b261e22719720982223407f8957d08a3646178c79f482861218882f0956d804021
-  languageName: node
-  linkType: hard
-
 "@expo/config-types@npm:^49.0.0-alpha.1":
   version: 49.0.0
   resolution: "@expo/config-types@npm:49.0.0"
@@ -2198,17 +2168,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@expo/json-file@npm:8.2.36":
-  version: 8.2.36
-  resolution: "@expo/json-file@npm:8.2.36"
-  dependencies:
-    "@babel/code-frame": ~7.10.4
-    json5: ^1.0.1
-    write-file-atomic: ^2.3.0
-  checksum: 37ce80b3472fef2a56136ebff5993d98ab4fbd45c4d7791ff47be80438dbeabd84bc699a401da0c314357ef65d8fff87a5a1241b3119db2d575878f9321bd1e7
-  languageName: node
-  linkType: hard
-
 "@expo/json-file@npm:^8.2.37, @expo/json-file@npm:~8.2.37":
   version: 8.2.37
   resolution: "@expo/json-file@npm:8.2.37"
@@ -2266,17 +2225,6 @@ __metadata:
     split: ^1.0.1
     sudo-prompt: 9.1.1
   checksum: 61d5cec5e40029789b2e8f0487aa14999bc98d50967d022d7b55b84efdb5c26581dd568239d8f4af525c07212dfbaa0eab74bbc2fca55d22cee7d463abe03a94
-  languageName: node
-  linkType: hard
-
-"@expo/plist@npm:0.0.18":
-  version: 0.0.18
-  resolution: "@expo/plist@npm:0.0.18"
-  dependencies:
-    "@xmldom/xmldom": ~0.7.0
-    base64-js: ^1.2.3
-    xmlbuilder: ^14.0.0
-  checksum: 42f5743fcd2a07b55a9f048d27cf0f273510ab35dde1f7030b22dc8c30ab2cfb65c6e68f8aa58fbcfa00177fdc7c9696d0004083c9a47c36fd4ac7fea27d6ccc
   languageName: node
   linkType: hard
 
@@ -4104,7 +4052,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xmldom/xmldom@npm:~0.7.0, @xmldom/xmldom@npm:~0.7.7":
+"@xmldom/xmldom@npm:~0.7.7":
   version: 0.7.13
   resolution: "@xmldom/xmldom@npm:0.7.13"
   checksum: b4054078530e5fa8ede9677425deff0fce6d965f4c477ca73f8490d8a089e60b8498a15560425a1335f5ff99ecb851ed2c734b0a9a879299a5694302f212f37a
@@ -6478,18 +6426,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"expo-app-auth@npm:~11.1.0":
-  version: 11.1.1
-  resolution: "expo-app-auth@npm:11.1.1"
-  dependencies:
-    "@expo/config-plugins": ^4.0.2
-    invariant: ^2.2.4
-  peerDependencies:
-    expo: "*"
-  checksum: 52aa04a07d9e7e87ea9897b12e635b8c59c63026d37831d783a44aeca5c19ed5da970159ad83a15ff0d629c5fc83d6e71a22298aadac5c3a66486f2bff8876e8
-  languageName: node
-  linkType: hard
-
 "expo-application@npm:~5.3.0":
   version: 5.3.1
   resolution: "expo-application@npm:5.3.1"
@@ -6634,15 +6570,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"expo-google-app-auth@npm:~8.3.0":
-  version: 8.3.0
-  resolution: "expo-google-app-auth@npm:8.3.0"
-  dependencies:
-    expo-app-auth: ~11.1.0
-  checksum: e67c2da96652d6ad9c9dbf5c49e2cd69ee5b50703e82c441c44715cb694050c61b01b27a4114dee767814d60c7b766b0f56e4ba570cbab0b397984ee489fe973
-  languageName: node
-  linkType: hard
-
 "expo-json-utils@npm:~0.7.0":
   version: 0.7.1
   resolution: "expo-json-utils@npm:0.7.1"
@@ -6722,6 +6649,18 @@ __metadata:
   version: 1.6.0
   resolution: "expo-status-bar@npm:1.6.0"
   checksum: e9fe7eeac4dfb3a534d79b6fa0df2a3d2e4c69edeb3573e408ca8d3b7d192627b3f9638c8f656bea9af0a6660f27c99c5da504a508294893dbe359ad5f1d6ab3
+  languageName: node
+  linkType: hard
+
+"expo-system-ui@npm:~2.4.0":
+  version: 2.4.0
+  resolution: "expo-system-ui@npm:2.4.0"
+  dependencies:
+    "@react-native/normalize-color": ^2.0.0
+    debug: ^4.3.2
+  peerDependencies:
+    expo: "*"
+  checksum: bf95f865785e3a79e5de5770484cf510bec7838945025e6efce69476cb6d6f56d3b532b47853ffc329c5e93c5f1d68a2ed50ac0b50cc3e82f9b36c679a0a9efc
   languageName: node
   linkType: hard
 
@@ -8739,17 +8678,6 @@ __metadata:
   version: 1.0.1
   resolution: "json-stable-stringify-without-jsonify@npm:1.0.1"
   checksum: cff44156ddce9c67c44386ad5cddf91925fe06b1d217f2da9c4910d01f358c6e3989c4d5a02683c7a5667f9727ff05831f7aa8ae66c8ff691c556f0884d49215
-  languageName: node
-  linkType: hard
-
-"json5@npm:^1.0.1":
-  version: 1.0.2
-  resolution: "json5@npm:1.0.2"
-  dependencies:
-    minimist: ^1.2.0
-  bin:
-    json5: lib/cli.js
-  checksum: 866458a8c58a95a49bef3adba929c625e82532bcff1fe93f01d29cb02cac7c3fe1f4b79951b7792c2da9de0b32871a8401a6e3c5b36778ad852bf5b8a61165d7
   languageName: node
   linkType: hard
 
@@ -12905,9 +12833,9 @@ __metadata:
     expo-auth-session: ~5.0.2
     expo-build-properties: ~0.8.3
     expo-dev-client: ~2.4.11
-    expo-google-app-auth: ~8.3.0
     expo-random: ~13.2.0
     expo-status-bar: ~1.6.0
+    expo-system-ui: ~2.4.0
     firebase: ^10.4.0
     husky: ^8.0.0
     install: ^0.13.0
@@ -13849,16 +13777,6 @@ __metadata:
     simple-plist: ^1.1.0
     uuid: ^7.0.3
   checksum: 908ff85851f81aec6e36ca24427db092e1cc068f052716e14de5e762196858039efabbe053a1abe8920184622501049e74a93618e8692b982f7604a9847db108
-  languageName: node
-  linkType: hard
-
-"xml2js@npm:0.4.23":
-  version: 0.4.23
-  resolution: "xml2js@npm:0.4.23"
-  dependencies:
-    sax: ">=0.6.0"
-    xmlbuilder: ~11.0.0
-  checksum: ca0cf2dfbf6deeaae878a891c8fbc0db6fd04398087084edf143cdc83d0509ad0fe199b890f62f39c4415cf60268a27a6aed0d343f0658f8779bd7add690fa98
   languageName: node
   linkType: hard
 

@@ -43,6 +43,8 @@ const FilledButton: React.FC<Props> = ({
   const textClasses = [
     'text-background',
     'font-inconsolata',
+    'text-black',
+    'dark:text-white',
     'uppercase',
     sizeClasses.text,
     iconLeft && sizeClasses.iconMargin.split(' ')[0],
@@ -54,12 +56,16 @@ const FilledButton: React.FC<Props> = ({
   return (
     <TouchableOpacity
       onPress={onPress}
-      className={`flex-row items-center bg-white border border-white ${sizeClasses.padding} m-1 rounded-5 ${className}`}
+      className={`flex-row items-center bg-white dark:bg-black border border-white dark:border-black ${sizeClasses.padding} m-1 rounded-5 ${className}`}
     >
       <View className="flex-row items-center px-3">
-        {iconLeft && <Icon name={iconLeft} size={24} color="black" />}
+        {iconLeft && (
+          <Icon name={iconLeft} size={24} color="black" darkColor="white" />
+        )}
         <Text className={textClasses}>{children}</Text>
-        {iconRight && <Icon name={iconRight} size={24} color="black" />}
+        {iconRight && (
+          <Icon name={iconRight} size={24} color="black" darkColor="white" />
+        )}
       </View>
     </TouchableOpacity>
   );
