@@ -6652,15 +6652,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"expo-system-ui@npm:~2.4.0":
-  version: 2.4.0
-  resolution: "expo-system-ui@npm:2.4.0"
+"expo-system-ui@npm:~2.6.0":
+  version: 2.6.0
+  resolution: "expo-system-ui@npm:2.6.0"
   dependencies:
     "@react-native/normalize-color": ^2.0.0
     debug: ^4.3.2
   peerDependencies:
     expo: "*"
-  checksum: bf95f865785e3a79e5de5770484cf510bec7838945025e6efce69476cb6d6f56d3b532b47853ffc329c5e93c5f1d68a2ed50ac0b50cc3e82f9b36c679a0a9efc
+  checksum: 7d5b9fa8bed10f4ebc094af1ddecb49d51896ba1d63e86d294216c80dedecbe91ab77feb38400dfd87e39100000be88496297d87130f35f30749ea4973f12223
   languageName: node
   linkType: hard
 
@@ -12835,7 +12835,7 @@ __metadata:
     expo-dev-client: ~2.4.11
     expo-random: ~13.2.0
     expo-status-bar: ~1.6.0
-    expo-system-ui: ~2.4.0
+    expo-system-ui: ~2.6.0
     firebase: ^10.5.0
     husky: ^8.0.0
     install: ^0.13.0
