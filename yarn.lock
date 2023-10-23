@@ -1995,9 +1995,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@expo/cli@npm:0.10.13":
-  version: 0.10.13
-  resolution: "@expo/cli@npm:0.10.13"
+"@expo/cli@npm:0.10.14":
+  version: 0.10.14
+  resolution: "@expo/cli@npm:0.10.14"
   dependencies:
     "@babel/runtime": ^7.20.0
     "@expo/code-signing-certificates": 0.0.5
@@ -2063,7 +2063,7 @@ __metadata:
     ws: ^8.12.1
   bin:
     expo-internal: build/bin/cli
-  checksum: 3dda76f39a9658317bd80715fe075e8f6d3e09c0ca2ce38b5042f72c2ac7d5c8d2229beed614104d396a1dd1d40d09755707e671a8dab6fbdc9d9b5dd9d060e2
+  checksum: 88bda58114c47fb9f6371a9e688ff12fffac8c7ffc6e29baf1f0f9ab99ac4ed0595f332328e179319f6fbd5e08cbcdd169453e18a673d4032a29e6f1d1594c7c
   languageName: node
   linkType: hard
 
@@ -6810,12 +6810,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"expo@npm:~49.0.13":
-  version: 49.0.13
-  resolution: "expo@npm:49.0.13"
+"expo@npm:~49.0.16":
+  version: 49.0.16
+  resolution: "expo@npm:49.0.16"
   dependencies:
     "@babel/runtime": ^7.20.0
-    "@expo/cli": 0.10.13
+    "@expo/cli": 0.10.14
     "@expo/config": 8.1.2
     "@expo/config-plugins": 7.2.5
     "@expo/vector-icons": ^13.0.0
@@ -6836,7 +6836,7 @@ __metadata:
     uuid: ^3.4.0
   bin:
     expo: bin/cli
-  checksum: 66ec9f5fbb9dc444e6e65c255732923f0329748e522a5e66c03ead232bd4cbe4d940cd2b51dd51b86955605542e07e7b2cf36274a8d7f696633260a2d10e9541
+  checksum: 5f65fd86a3a3bd13f8d186bcdedc80f3261b6db4c0605a6985c6bb16e2f4e2d50052daf93d6d9fce5892fbb598b2ab4f916d57d2b02064c0cc7807e93795acbf
   languageName: node
   linkType: hard
 
@@ -12956,7 +12956,7 @@ __metadata:
     commitlint: ^17.7.2
     eslint: ^8.51.0
     eslint-plugin-react: ^7.33.2
-    expo: ~49.0.13
+    expo: ~49.0.16
     expo-auth-session: ~5.2.0
     expo-build-properties: ~0.8.3
     expo-dev-client: ~2.4.11
