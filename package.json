@@ -30,7 +30,7 @@
     "@react-navigation/bottom-tabs": "^6.5.9",
     "@react-navigation/native": "^6.1.8",
     "@react-navigation/native-stack": "^6.9.14",
-    "@react-navigation/stack": "^6.3.18",
+    "@react-navigation/stack": "^6.3.20",
     "@types/react": "~18.2.14",
     "axios": "^1.5.1",
     "expo": "~49.0.13",
