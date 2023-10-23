@@ -11310,13 +11310,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native-safe-area-context@npm:^4.7.2":
-  version: 4.7.2
-  resolution: "react-native-safe-area-context@npm:4.7.2"
+"react-native-safe-area-context@npm:^4.7.3":
+  version: 4.7.3
+  resolution: "react-native-safe-area-context@npm:4.7.3"
   peerDependencies:
     react: "*"
     react-native: "*"
-  checksum: a74a9c8b3d8642cab6e92ab12991279d3c0984c8ce09e64a4f5c6b08316001e796678bd3d5fa0e2601a334435c34ee914411a7cf7d8aa0460a49a177093b64ee
+  checksum: 1cc304216f4bb18a3f883aca029751e190ef5b7b61756a2bf1424114c140bf8d9f6e149f2a16a2cfa7c4c255c3537a185d44b37ebf62d57e01ef9b024b24c9a6
   languageName: node
   linkType: hard
 
@@ -12894,7 +12894,7 @@ __metadata:
     react-native-gesture-handler: ~2.12.0
     react-native-heroicons: ^3.2.0
     react-native-modal: ^13.0.1
-    react-native-safe-area-context: ^4.7.2
+    react-native-safe-area-context: ^4.7.3
     react-native-screens: ^3.25.0
     react-native-securerandom: ^1.0.1
     react-query: ^3.39.3
