@@ -63,7 +63,7 @@
     "@types/react-native": "^0.72.5",
     "@typescript-eslint/eslint-plugin": "^6.9.0",
     "@typescript-eslint/parser": "^6.9.0",
-    "commitlint": "^17.7.2",
+    "commitlint": "^18.0.0",
     "eslint": "^8.51.0",
     "eslint-plugin-react": "^7.33.2",
     "husky": "^8.0.0",
