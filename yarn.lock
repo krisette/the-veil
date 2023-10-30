@@ -6759,14 +6759,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"expo-random@npm:~13.2.0":
-  version: 13.2.0
-  resolution: "expo-random@npm:13.2.0"
+"expo-random@npm:~13.4.0":
+  version: 13.4.0
+  resolution: "expo-random@npm:13.4.0"
   dependencies:
     base64-js: ^1.3.0
   peerDependencies:
     expo: "*"
-  checksum: 80701c9aff3c0dd4f09c2d73687fd79b4b4811c221ddaa6554c3695b01b77191450e12a8ccdfc8a8a17b9eb801a543d849a1daec07b4f6146890cf45bd511c1b
+  checksum: 4ff883e65564026d391b7726bd642a8bd4d106329beacb150ca55afe198b7aa44547a5956fcd2806f8b71e92d90dcd4b0ae83e4a1f07fdd1ac47580d1b670ae8
   languageName: node
   linkType: hard
 
@@ -12974,7 +12974,7 @@ __metadata:
     expo-auth-session: ~5.2.0
     expo-build-properties: ~0.8.3
     expo-dev-client: ~2.4.11
-    expo-random: ~13.2.0
+    expo-random: ~13.4.0
     expo-status-bar: ~1.7.1
     expo-system-ui: ~2.6.0
     firebase: ^10.5.0
