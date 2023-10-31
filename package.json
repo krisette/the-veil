@@ -37,7 +37,7 @@
     "expo-auth-session": "~5.2.0",
     "expo-build-properties": "~0.8.3",
     "expo-dev-client": "~2.4.11",
-    "expo-random": "~13.2.0",
+    "expo-random": "~13.4.0",
     "expo-status-bar": "~1.7.1",
     "expo-system-ui": "~2.6.0",
     "firebase": "^10.5.2",
