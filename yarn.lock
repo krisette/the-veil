@@ -3518,18 +3518,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-native-firebase/auth@npm:^18.5.0":
-  version: 18.5.0
-  resolution: "@react-native-firebase/auth@npm:18.5.0"
+"@react-native-firebase/auth@npm:^18.6.0":
+  version: 18.6.0
+  resolution: "@react-native-firebase/auth@npm:18.6.0"
   dependencies:
     plist: ^3.1.0
   peerDependencies:
-    "@react-native-firebase/app": 18.5.0
+    "@react-native-firebase/app": 18.6.0
     expo: ">=47.0.0"
   peerDependenciesMeta:
     expo:
       optional: true
-  checksum: 32df9f93b3b0d0b081a9767521b7019bb9edb896fda6934683a3319bf18cfd8c951b117613fb8ce25f7cf54e5b0ad81a2a75d83469986743e81268fbd51cb806
+  checksum: eab97a0c6978e3abb3bc2f1997572c5b91567768507bab6c12173169ea963c7880d7f60abd0dc1f54d646217ec4c8d3957f17e63af8df3cf6c995b7083428b6d
   languageName: node
   linkType: hard
 
@@ -12955,7 +12955,7 @@ __metadata:
     "@expo-google-fonts/spectral": ^0.2.3
     "@react-native-async-storage/async-storage": 1.18.2
     "@react-native-firebase/app": ^18.5.0
-    "@react-native-firebase/auth": ^18.5.0
+    "@react-native-firebase/auth": ^18.6.0
     "@react-native-google-signin/google-signin": ^10.0.1
     "@react-navigation/bottom-tabs": ^6.5.11
     "@react-navigation/native": ^6.1.8
