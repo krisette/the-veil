@@ -45,7 +45,7 @@
     "install": "^0.13.0",
     "nativewind": "^2.0.11",
     "react": "18.2.0",
-    "react-native": "0.72.6",
+    "react-native": "0.72.7",
     "react-native-config": "^1.5.1",
     "react-native-dotenv": "^3.4.9",
     "react-native-gesture-handler": "~2.13.4",
