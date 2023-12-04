@@ -3769,12 +3769,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/react-native@npm:^12.3.0":
-  version: 12.3.0
-  resolution: "@testing-library/react-native@npm:12.3.0"
+"@testing-library/react-native@npm:^12.4.1":
+  version: 12.4.1
+  resolution: "@testing-library/react-native@npm:12.4.1"
   dependencies:
-    jest-matcher-utils: ^29.6.2
-    pretty-format: ^29.6.2
+    jest-matcher-utils: ^29.7.0
+    pretty-format: ^29.7.0
     redent: ^3.0.0
   peerDependencies:
     jest: ">=28.0.0"
@@ -3784,7 +3784,7 @@ __metadata:
   peerDependenciesMeta:
     jest:
       optional: true
-  checksum: 409b64207b4c7319926e5ce590adf84fe7ddb17ebdec4a92d4562c2ddcb3c23d7cf2ffd8f1810ab3241590817296b019869116f6d91f4125b452bb88c90e9031
+  checksum: cd73fc33e48d3eb8f4e3e4b99b88913e4fd4f91ab33285e400146730cdfdb3ee48605cc73bd18c570a56c4d364f45c3d6c8434ed7f30d3c1b53f9730ad68813e
   languageName: node
   linkType: hard
 
@@ -8515,7 +8515,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-matcher-utils@npm:^29.6.2":
+"jest-matcher-utils@npm:^29.7.0":
   version: 29.7.0
   resolution: "jest-matcher-utils@npm:29.7.0"
   dependencies:
@@ -11039,7 +11039,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pretty-format@npm:^29.6.2, pretty-format@npm:^29.7.0":
+"pretty-format@npm:^29.7.0":
   version: 29.7.0
   resolution: "pretty-format@npm:29.7.0"
   dependencies:
@@ -12957,7 +12957,7 @@ __metadata:
     "@react-navigation/native": ^6.1.8
     "@react-navigation/native-stack": ^6.9.17
     "@react-navigation/stack": ^6.3.20
-    "@testing-library/react-native": ^12.3.0
+    "@testing-library/react-native": ^12.4.1
     "@types/react": ~18.2.37
     "@types/react-native": ^0.72.5
     "@typescript-eslint/eslint-plugin": ^6.9.0
